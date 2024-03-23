@@ -7,7 +7,7 @@ function Authentication(req, res, next){
     const crypto = require('crypto');
     
     const key_name       = `${process.env.API_KEY_NAME}`;
-    const key_secret = `-----BEGIN EC PRIVATE KEY-----\nMHcCAQEEIOuNAM5uNpp+wEf6E8qYiLVAWJe60RKPy9iFgvJ8VwJooAoGCCqGSM49\nAwEHoUQDQgAEjEodJQLFxtGxqNo4Rr8rnNylGXa39hPzmQP6VsWJhj94w/aPVWty\ns7UEVl/0OSL6SxUOhqxiz1P+Lulv3aLt0w==\n-----END EC PRIVATE KEY-----\n`;
+    const key_secret = `${process.env.PRIVATE_KEY}`;
     const request_method = 'GET';
     const url = 'api.coinbase.com';
     const request_path = '/api/v3/brokerage/products/ETH-USD';
@@ -34,7 +34,6 @@ function Authentication(req, res, next){
                 },
             }
     );
-    console.log(`Authentication file: ${token}`);
     req.body.token = token
     next()
    
