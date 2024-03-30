@@ -13,6 +13,8 @@ app.use(cors({ origin: "http://localhost:3000", credentials:true}))
 
 app.use(Authentication)
 
+
+app.use('/users', require('./controllers/users.js'))
 app.use('/assetInfo', require('./controllers/assetInfo.js'))
 
 
